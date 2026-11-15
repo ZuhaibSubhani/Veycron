@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { FiHexagon } from "react-icons/fi";
 import Container from "./Container";
+import { SITE } from "@/lib/site";
 
 const links = [
   { label: "What we do", href: "#what-we-do" },
   { label: "How we build", href: "#how-we-build" },
   { label: "Our process", href: "#process" },
-  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -30,12 +31,17 @@ export default function Navbar() {
           : "border-slate-200 shadow-none"
       }`}
     >
-      <Container className="flex h-20 items-center justify-between lg:h-24">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-700 text-white">
-            <FiHexagon className="h-5 w-5" />
-          </span>
-          <span className="font-heading text-2xl font-bold tracking-tight text-slate-900">
+      <Container className="flex h-16 items-center justify-between lg:h-[72px]">
+        <Link href="/" aria-label="Veycron home" className="flex items-center gap-2.5">
+          <Image
+            src={SITE.logo.src}
+            alt=""
+            width={SITE.logo.width}
+            height={SITE.logo.height}
+            priority
+            className="h-8 w-auto lg:h-9"
+          />
+          <span className="font-heading text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">
             Veycron
           </span>
         </Link>

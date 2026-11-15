@@ -45,53 +45,53 @@ const themes = {
 const saas = [
   {
     name: "Veycron Campus",
-    descriptor: "School ERP",
-    kind: "SaaS",
+    descriptor: "School Management Software",
+    kind: "Ready-made",
     pricing: "per student / year",
     href: "/campus",
     cta: "Explore Campus",
     icon: LuGraduationCap,
     theme: themes.teal,
     summary:
-      "School management software for admissions, fees, attendance, timetable, exams, and parent communication, in one system a clerk can run on a 5-inch screen.",
+      "School management software for admissions, fees, attendance, timetable, exams, and parent communication, in one system a clerk can run on a small phone screen.",
     features: [
       "Fee receipts with WhatsApp and SMS alerts",
       "Attendance, report cards, and exam results",
-      "Parent app in English and Hindi",
+      "Parent app with multi-language support",
       "Works on low-end Android phones",
     ],
   },
   {
     name: "Veycron Stock",
-    descriptor: "Inventory Management",
-    kind: "SaaS",
-    pricing: "per seat / month",
+    descriptor: "Stock & Billing Software",
+    kind: "Ready-made",
+    pricing: "per user / month",
     href: "/stock",
     cta: "Explore Stock",
     icon: FiBox,
     theme: themes.indigo,
     summary:
-      "Real-time inventory management across multiple warehouses, GST-compliant invoicing, and barcode scanning on your phone. Stop guessing, stop leaking.",
+      "Know what is in stock across every warehouse, create tax-ready invoices, and scan barcodes with your phone. Stop guessing, stop losing stock.",
     features: [
       "Multi-warehouse stock with live counts",
-      "GST invoices and purchase orders",
+      "Tax-ready invoices and purchase orders",
       "Barcode scanning with any Android phone",
       "Low-stock and expiry alerts",
     ],
   },
   {
     name: "Veycron Assist",
-    descriptor: "AI Scheduling",
-    kind: "SaaS",
-    pricing: "per seat / month",
+    descriptor: "Smart Timetable & Scheduling",
+    kind: "Ready-made",
+    pricing: "per user / month",
     href: "/assist",
     cta: "Explore Assist",
     icon: LuSparkles,
     theme: themes.violet,
     summary:
-      "Build conflict-free timetables and shift rosters in minutes. The AI suggests; you approve. Every decision is reversible and every suggestion is explained.",
+      "Create clash-free timetables and shift rosters in minutes. The AI suggests, you approve. Every change can be undone and every suggestion is explained.",
     features: [
-      "Constraint-aware timetable and shift planning",
+      "Automatic timetables and shift plans without clashes",
       "Explainable AI suggestions",
       "One-click approve, edit, or undo",
       "Handles leaves and substitutions",
@@ -102,37 +102,37 @@ const saas = [
 const services = [
   {
     name: "Veycron Labs",
-    descriptor: "Custom AI Development",
-    kind: "Service",
+    descriptor: "Custom AI Solutions",
+    kind: "Made for you",
     pricing: "project or retainer",
     href: "/labs",
     cta: "Explore Labs",
     icon: LuFlaskConical,
     theme: themes.amber,
     summary:
-      "We build AI into your existing workflows, with inference woven into the processes your team already uses, not a chatbot bolted on top.",
+      "We add AI to the tools your team already uses, so repetitive work gets faster, instead of bolting a chatbot on top.",
     features: [
-      "LLM integration and RAG over your documents",
+      "AI that answers questions from your own documents",
       "AI agents for repetitive operations",
-      "Evaluation and guardrails from day one",
-      "Prototype to production support",
+      "Checks and safeguards built in from day one",
+      "From first prototype to live use",
     ],
   },
   {
     name: "Veycron Build",
     descriptor: "Web & Mobile Development",
-    kind: "Service",
+    kind: "Made for you",
     pricing: "fixed-scope project",
     href: "/build",
     cta: "Explore Build",
     icon: FiCode,
     theme: themes.teal,
     summary:
-      "Fixed-scope delivery. We scope it, build it, and hand it over with a test suite and deployment pipeline, on time and to spec.",
+      "A mobile app, website, or web system built to a clear scope. We plan it, build it, and hand it over tested and documented, on time and to spec.",
     features: [
-      "React, Next.js, and React Native",
+      "Mobile apps and websites (React, Next.js, React Native)",
       "Android-first mobile app development",
-      "Tests, CI/CD, and documentation handover",
+      "Testing, deployment, and documentation handover",
       "Clear scope, timeline, and price",
     ],
   },
@@ -146,12 +146,12 @@ const jsonLd = {
     "@type": "ListItem",
     position: i + 1,
     item: {
-      "@type": o.kind === "SaaS" ? "SoftwareApplication" : "Service",
+      "@type": o.kind === "Ready-made" ? "SoftwareApplication" : "Service",
       name: o.name,
       description: o.summary,
-      ...(o.kind === "SaaS"
+      ...(o.kind === "Ready-made"
         ? { applicationCategory: "BusinessApplication", operatingSystem: "Android, Web" }
-        : { areaServed: "IN", provider: { "@type": "Organization", name: "Veycron" } }),
+        : { areaServed: "Worldwide", provider: { "@type": "Organization", name: "Veycron" } }),
     },
   })),
 };
@@ -252,18 +252,18 @@ export default function WhatWeDo() {
           id="what-we-do-heading"
           className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-[56px] lg:leading-[1.1]"
         >
-          Three SaaS products. Two service lines.
+          Ready-to-use software, or something built just for you.
         </h2>
         <p className="mt-6 max-w-[800px] text-lg leading-8 text-slate-600 lg:text-xl lg:leading-9">
-          Choose a focused product for a familiar operational problem, or work
-          with our engineering team on something specific to your organisation.
+          Start with ready-made software for schools, shops, and teams, or have
+          us build a mobile app, website, or system around the way you work.
           Every offering gets the same attention to clarity, reliability, and
           long-term usefulness.
         </p>
 
         {/* SaaS products: 3 across */}
         <div className="mt-14 lg:mt-16">
-          <GroupLabel>SaaS products</GroupLabel>
+          <GroupLabel>Ready-to-use software</GroupLabel>
           <ul className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {saas.map((o) => (
               <li key={o.name} className="min-w-0">
@@ -275,7 +275,7 @@ export default function WhatWeDo() {
 
         {/* Services: 2 wider cards */}
         <div className="mt-14">
-          <GroupLabel>Engineering services</GroupLabel>
+          <GroupLabel>Built for you</GroupLabel>
           <ul className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-8">
             {services.map((o) => (
               <li key={o.name} className="min-w-0">

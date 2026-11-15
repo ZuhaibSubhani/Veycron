@@ -2,9 +2,9 @@ import Container from "./Container";
 
 const principles = [
   {
-    eyebrow: "India-first",
+    eyebrow: "Real-world ready",
     title: "Built for real operating conditions",
-    body: "Android-first screens, familiar workflows, print-ready documents, and support for the way Indian teams actually work, in English and Hindi.",
+    body: "Mobile-friendly screens, familiar workflows, print-ready documents, and support for the way your team actually works, in the language they use.",
   },
   {
     eyebrow: "Practical AI",
@@ -23,7 +23,7 @@ const principles = [
   },
 ];
 
-export default function Howwebuild() {
+export default function HowWeBuild() {
   return (
     <section
       id="how-we-build"
